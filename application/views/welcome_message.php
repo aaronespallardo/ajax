@@ -72,6 +72,7 @@
 
 	var count = 0;
 	var ratio = 100;
+	var total = 0;
 
 		$(document).ready(function(){
 
@@ -144,7 +145,7 @@
 			$(".belat").click(function(){
 					
 					var one = parseInt($("#txt_input1").val());
-					var total = 0;
+					var total1 = 0;
 					if(isNaN(one)){
 					  one = 0;
 					}
@@ -152,9 +153,9 @@
 					$("#my_ul li").find($(".hide")).each(function(){
 							var palit = parseInt($(this).val());
 							console.log(palit);
-							total += palit;
+							total1 += palit;
 					});
-					var superdupertotal = total+one;
+					var superdupertotal = total1+one;
 					alert("sum: " +superdupertotal+ "%");
 
 					
