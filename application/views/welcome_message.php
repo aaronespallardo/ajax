@@ -119,8 +119,14 @@
 
 			 	console.log($(this).val() + " --- " + ratio + !(isNaN($(this).val())) );
 
+			 	if(parseInt($(this).val()) > 50 ){
 
-			 	if(ratio>=parseInt($(this).val()) ){
+			 		$(".clicker").fadeOut();
+			 		$("#warning").fadeIn();
+
+			 	}
+
+			 	else if((ratio-total)>=parseInt($(this).val()) ){
 
 			 		$(".clicker").fadeIn();
 			 		$("#warning").fadeOut();
@@ -179,7 +185,7 @@
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>-->
 	
-	<input type="text" id="txt_input1" name="txt_input1" disabled />
+	<input type="text" id="txt_input1" name="txt_input1" disabled value = "100" />
 	<button class = "clicker2">son goku</button>
 	<br/>
 	<select id="sel">
