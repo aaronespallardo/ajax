@@ -91,8 +91,8 @@
 			 	
 
 				if($("#my_ul li").length < 2){
-					$("#my_ul").append('<li>'+ '<input type="hidden" class="hide" value="'+$("#txt_input2").val()+'" />'
-										+ $('#sel').find("option:selected").text() + "&nbsp;&nbsp;" + $("#txt_input2").val() + "%" + '</li>');
+					$("#my_ul").append('<li>'+ '<input type="hidden" class="hide" value="'+ $("#txt_input2").val() + '" />'
+										+ $('#sel').find("option:selected").text() + "&nbsp;&nbsp;" + $("#txt_input2").val() + "%" + '<button class = "clear"> clear </button></li>');
 				}
 				else{
 					alert("hanggang dalawa lang pre..");
@@ -118,7 +118,7 @@
 
 			 $("#txt_input2").on("keyup",function(){
 
-			 	console.log($(this).val() + " --- " + ratio + !(isNaN($(this).val())) );
+			 	console.log($(this).val() + " --- " + ratio + " --- " + total + " --- " + (ratio - total) );
 
 			 	if(parseInt($(this).val()) > 50 ){
 
@@ -141,7 +141,20 @@
 
 			 });
 
-			   
+			$("#my_ul").on("click",".clear",function(){
+
+				var thisvalue = parseInt($(this).parent().find($(".hide")).val());
+				console.log(thisvalue);
+				ratio = ratio + thisvalue;
+				total = total - thisvalue;
+				$("#txt_input1").val(ratio);
+
+				$(this).parent().remove();
+
+
+			});
+
+
 			$(".belat").click(function(){
 					
 					var one = parseInt($("#txt_input1").val());
@@ -202,10 +215,11 @@
 	List ni Goku
 	</ul>
 	<br/>
-	<ul id = "my_ul">
+	<ul id = "my_ul">	
 	List ni Mr. Pogi & Co.
 	</ul>
 	<button class = "belat">show me the money</button>
+	
 </div>
 
 </body>
